@@ -1,0 +1,22 @@
+stages:
+  - build
+  - deploy
+
+job_build:
+  stage: build
+  script:
+    - mvn package docker:build -Dmaven.test.skip=true
+  only:
+    - master
+  tags:
+    - oa-build
+    
+job_deploy:
+  stage: deploy
+  script:
+    - docker stop hyoa && docker rm hyoa
+    - docker run -d -p 8010:8010 --name hyoa hy/oa
+  only:
+    - master
+  tags:
+    - oa-deploy
