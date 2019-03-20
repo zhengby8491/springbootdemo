@@ -1,3 +1,8 @@
+# spring boot
+server:
+  # 服务端口
+  port: 8010
+  
 # spring
 spring:
   resources:

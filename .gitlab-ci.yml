@@ -14,8 +14,8 @@ job_build:
 job_deploy:
   stage: deploy
   script:
-    - docker stop hyoa && docker rm hyoa
-    - docker run -d -p 8010:8010 --name hyoa hy/oa
+    - docker stop hycrm && docker rm hycrm
+    - docker run -d -p 8010:8010 --name hycrm hy/crm
   only:
     - master
   tags:
