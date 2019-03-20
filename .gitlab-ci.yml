@@ -9,7 +9,7 @@ job_build:
   only:
     - master
   tags:
-    - oa-build
+    - crm-build
     
 job_deploy:
   stage: deploy
@@ -19,4 +19,4 @@ job_deploy:
   only:
     - master
   tags:
-    - oa-deploy
+    - crm-deploy
