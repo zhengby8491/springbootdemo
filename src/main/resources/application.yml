@@ -11,7 +11,7 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
-  datasource:    url: jdbc:mysql://192.168.1.164:10100/jyw-test?characterEncoding=utf-8
+  datasource:    url: jdbc:mysql://192.168.1.164:10100/crm-dev?characterEncoding=utf-8
     username: root
     password: kKpt3SjkQlT6g79wKSFFVI9y4leZHLAzhahzNuwvVRUQN/ljiPwIjyTlaGMujHtEqCBA45YAH/hnuj9wS2TDoA==
     driver-class-name: com.mysql.jdbc.Driver
