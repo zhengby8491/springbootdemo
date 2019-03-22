@@ -11,9 +11,13 @@ package com.huayin.crm.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.huayin.crm.service.sys.SysUserService;
+import com.huayin.crm.vo.sys.SysUser;
 
 /**
  * <pre>
@@ -25,6 +29,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class LoginController
 {
+	@Autowired
+	SysUserService sysUserService;
 	/**
 	 * <pre>
 	 * 登录
@@ -50,6 +56,8 @@ public class LoginController
 	@RequestMapping("/index")
 	public String index (Model model)
 	{
+		SysUser user = sysUserService.get(82l);
+		System.out.println(user.getLoginname());
 		return "index.html";
 	}
 
@@ -67,4 +75,6 @@ public class LoginController
 	{
 		return "login.html";
 	}
+	
+	
 }

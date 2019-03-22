@@ -13,9 +13,13 @@ spring:
     time-zone: GMT+8
   datasource:    url: jdbc:mysql://192.168.1.164:10100/crm-dev?characterEncoding=utf-8
     username: root
-    password: kKpt3SjkQlT6g79wKSFFVI9y4leZHLAzhahzNuwvVRUQN/ljiPwIjyTlaGMujHtEqCBA45YAH/hnuj9wS2TDoA==
+    password: 123456
     driver-class-name: com.mysql.jdbc.Driver
-
+    
+mybatis:
+  type-aliases-package: com.huayin.crm.dao
+  mapper-locations: classpath:mapper/*.xml
+    
 #配置模板想到classpath路径，后面须加上"/"
 beetl:
   # 启用Beetl

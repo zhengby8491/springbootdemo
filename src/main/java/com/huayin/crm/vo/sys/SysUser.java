@@ -7,11 +7,11 @@
  * @since:         1.0
  * <pre>
  */
-package com.huayin.crm.dao.sys;
+package com.huayin.crm.vo.sys;
 
 import java.util.Date;
 
-import com.huayin.crm.dao.AbsDao;
+import com.huayin.crm.vo.AbsVo;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -25,7 +25,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class SysUser extends AbsDao
+public class SysUser extends AbsVo
 {
 	
 	private static final long serialVersionUID = 2978625682510878721L;

@@ -7,7 +7,7 @@
  * @since:         1.0
  * <pre>
  */
-package com.huayin.crm.dao;
+package com.huayin.crm.vo;
 
 import java.io.Serializable;
 
@@ -23,7 +23,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public abstract class AbsDao implements Serializable
+public abstract class AbsVo implements Serializable
 {
 	private static final long serialVersionUID = 6138226051014011177L;
 

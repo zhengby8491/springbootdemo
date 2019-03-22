@@ -7,7 +7,7 @@
  * @since:         1.0
  * <pre>
  */
-package com.huayin.crm.dao.sys;
+package com.huayin.crm.vo.sys;
 
 import lombok.Data;
 
