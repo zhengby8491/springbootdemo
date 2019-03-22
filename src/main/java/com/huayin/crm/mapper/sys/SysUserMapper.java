@@ -11,7 +11,6 @@ package com.huayin.crm.mapper.sys;
         
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.huayin.crm.vo.sys.SysUser;
@@ -23,7 +22,6 @@ import com.huayin.crm.vo.sys.SysUser;
  * @author         zby
  * @version 	     1.0, 2019年3月22日下午1:46:07, zby
  */
-@Mapper
 public interface SysUserMapper
 {
 	/**

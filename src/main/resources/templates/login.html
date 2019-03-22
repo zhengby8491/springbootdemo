@@ -8,19 +8,22 @@
 </head>
 <body>
 	<div class="login-form">
-     <h1>CRM</h1>
-     <div class="form-group">
-       <input type="text" class="form-control" placeholder="用户名" id="UserName">
-       <i class="fa fa-user"></i>
-     </div>
-     <div class="form-group log-status">
-       <input type="password" class="form-control" placeholder="密码" id="Passwod">
-       <i class="fa fa-lock"></i>
-	   <span class="alert">用户名或密码错误</span>
-     </div>
-       <button type="button" class="log-btn">登录</button>		
-   </div>
+		<h1>CRM</h1>
+		<form id="form">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="用户名" id="username" name="username"> <i class="fa fa-user"></i>
+			</div>
+			<div class="form-group log-status">
+				<input type="password" class="form-control" placeholder="密码" id="password" name="password"> <i class="fa fa-lock"></i> <span class="alert">用户名或密码错误</span>
+			</div>
+			<button type="button" id="loginBtn" class="log-btn">登录</button>
+		</form>
+	</div>
 </body>
 </html>
+
 <script src='/assets/js/jquery.min.js'></script>
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script src="/assets/plugins/parsleyjs/parsley.min.js"></script>
+<script src="/site/js/common/helper.js"></script>
 <script src="/site/js/login.js"></script>

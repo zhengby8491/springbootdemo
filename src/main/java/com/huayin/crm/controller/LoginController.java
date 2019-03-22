@@ -15,7 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.huayin.crm.pojo.CrmResult;
 import com.huayin.crm.service.sys.SysUserService;
 import com.huayin.crm.vo.sys.SysUser;
 
@@ -76,5 +78,23 @@ public class LoginController
 		return "login.html";
 	}
 	
+	/**
+	 * <pre>
+	 * 提交登录账号密码
+	 * </pre>
+	 * @param model
+	 * @param username
+	 * @param password
+	 * @return
+	 * @since 1.0, 2019年3月22日 下午5:48:07, zby
+	 */
+	@SuppressWarnings("static-access")
+	@RequestMapping("/login/submit")
+	@ResponseBody
+	public CrmResult loginSubmit(Model model, String username, String password)
+	{
+		System.out.println(username);
+		return new CrmResult().ok();
+	}
 	
 }
