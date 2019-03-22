@@ -8,15 +8,27 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * @author Administrator
- *
+ * <pre>
+ * TODO 输入类型说明
+ * </pre>
+ * @author         zby
+ * @version 	     1.0, 2019年3月21日下午3:57:29, zby
  */
 @Controller
-public class SysController {
+public class SysController
+{
 
-	@RequestMapping("index")
-	public String index(Model mod) {
-		mod.addAttribute("att", "hello");
+	/**
+	 * <pre>
+	 * TODO
+	 * </pre>
+	 * @param model
+	 * @return
+	 * @since 1.0, 2019年3月21日 下午5:52:52, zby
+	 */
+	@RequestMapping("sys/index")
+	public String index(Model model)
+	{
 		return "sys/index.html";
 	}
 }
