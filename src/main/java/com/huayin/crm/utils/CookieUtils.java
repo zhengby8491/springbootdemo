@@ -7,7 +7,7 @@
  * @since:         1.0
  * <pre>
  */
-package com.huayin.crm.common.util;
+package com.huayin.crm.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
