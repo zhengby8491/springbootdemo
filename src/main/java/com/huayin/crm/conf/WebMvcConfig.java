@@ -57,11 +57,12 @@ public class WebMvcConfig implements WebMvcConfigurer  {
 		List<String> excludePathPatterns = Arrays.asList("/login**","/login/**","/error/**","/assets/**","/site/**");
 		// 登录拦截
 		registry.addInterceptor(loginInterceptor()).addPathPatterns("/**")
-			.excludePathPatterns(excludePathPatterns);
+			.excludePathPatterns(excludePathPatterns)
+			.excludePathPatterns("/login/**");
 		
 		
-		// 权限拦截
-		registry.addInterceptor(permissionInterceptor()).addPathPatterns("/**")
-			.excludePathPatterns(excludePathPatterns);
+//		// 权限拦截
+//		registry.addInterceptor(permissionInterceptor()).addPathPatterns("/**")
+//			.excludePathPatterns(excludePathPatterns);
 	}
 }

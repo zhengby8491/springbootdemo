@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.util.NestedServletException;
 
+import com.huayin.crm.exception.LoginException;
 import com.huayin.crm.exception.PermissionException;
 
 /**
@@ -42,11 +43,11 @@ public class ExceptionController
 	 * @throws AuthException
 	 * @since 1.0, 2018年11月16日 下午3:20:23, think
 	 */
-	@ExceptionHandler(value = Exception.class)
+	@ExceptionHandler(value = LoginException.class)
 	public String handleAuthException(HttpServletRequest req, Exception e) throws AuthException
 	{
 		LOGGER.info("未登录");
-		return "redirect:login";
+		return "redirect:/login";
 	}
 	
 	/**

@@ -31,4 +31,10 @@ public class SysController
 	{
 		return "sys/index.html";
 	}
+	
+	@RequestMapping("sys/list")
+	public String list(Model model)
+	{
+		return "sys/list.html";
+	}
 }

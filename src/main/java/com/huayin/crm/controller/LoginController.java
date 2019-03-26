@@ -10,6 +10,7 @@
 package com.huayin.crm.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,9 +18,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.huayin.crm.constant.CrmConstant;
 import com.huayin.crm.pojo.CrmResult;
-import com.huayin.crm.service.sys.SysUserService;
-import com.huayin.crm.vo.sys.SysUser;
+import com.huayin.crm.service.LoginService;
+import com.huayin.crm.utils.CookieUtils;
 
 /**
  * <pre>
@@ -32,7 +34,8 @@ import com.huayin.crm.vo.sys.SysUser;
 public class LoginController
 {
 	@Autowired
-	SysUserService sysUserService;
+	private LoginService loginService;
+	
 	/**
 	 * <pre>
 	 * 登录
@@ -58,8 +61,6 @@ public class LoginController
 	@RequestMapping("/index")
 	public String index (Model model)
 	{
-		SysUser user = sysUserService.get(82l);
-		System.out.println(user.getLoginname());
 		return "index.html";
 	}
 
@@ -88,13 +89,16 @@ public class LoginController
 	 * @return
 	 * @since 1.0, 2019年3月22日 下午5:48:07, zby
 	 */
-	@SuppressWarnings("static-access")
 	@RequestMapping("/login/submit")
 	@ResponseBody
-	public CrmResult loginSubmit(Model model, String username, String password)
+	public CrmResult loginSubmit(HttpServletRequest request,HttpServletResponse response, String username, String password)
 	{
-		System.out.println(username);
-		return new CrmResult().ok();
+		CrmResult result =	loginService.loginSubmit(username, password);
+		if (result.isOK())
+		{
+			CookieUtils.setCookie(request, response, CrmConstant.TOKEN, result.getData().toString());
+		}
+		return result;
 	}
 	
 }

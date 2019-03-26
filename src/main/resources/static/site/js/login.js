@@ -1,7 +1,7 @@
 $(function()
 {
 	init();
-	formSubmit();initValidate()
+	initValidate();
 })
 
 function init()
@@ -19,10 +19,6 @@ function init()
 	$("#loginBtn").off().on("click",function(){
 		$("#form").submit();
 	})
-}
-
-function formSubmit()
-{
 }
 
 function initValidate()
@@ -44,9 +40,6 @@ function initValidate()
 		OnSubmit: true,
 		errorPlacement : function(error, element)
 		{
-			error.addClass('wrong-entry');
-			$('.alert').fadeIn(500);
-			setTimeout("$('.alert').fadeOut(1500);", 3000);
 		}
 	})
 }
@@ -60,6 +53,10 @@ function formPost()
 		if(result.ok)
 		{
 		 self.location="/index";
+		} else {
+			$("#password").addClass('wrong-entry');
+			$("#password").siblings(".alert").text("用户名或密码错误").fadeIn(500);
+			setTimeout("$('.alert').fadeOut(1500);", 3000);
 		}
 	});
 }

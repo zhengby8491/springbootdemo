@@ -33,6 +33,16 @@ public interface SysUserService
 	
 	/**
 	 * <pre>
+	 * 根据登录名称获取用户的记录
+	 * </pre>
+	 * @param loginname
+	 * @return
+	 * @since 1.0, 2019年3月22日 下午7:36:48, zby
+	 */
+	public SysUser getByLoginname(String loginname);
+	
+	/**
+	 * <pre>
 	 * 更新客户记录
 	 * </pre>
 	 * @param sysUser

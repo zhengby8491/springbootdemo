@@ -32,3 +32,23 @@ beetl:
   beetlsq:
     # 上线要关闭
     dev: true 
+    
+# REDIS (RedisProperties)
+redis:
+  cluster: false
+  single-host: 192.168.1.163
+  single-port: 10300
+  password: 'test'
+redisKey:
+  # 公共缓存
+  cache:
+    # 系统配置
+    sys_config: 'CACHE_SYS_CONFIG'
+  # SESSION缓存
+  session:
+    # 用户登录SESSSION失效时间
+    expire: 1200
+    # 用户登录SESSION
+    user: 'SESSION_USER'
+    # 用户登录拥有的菜单权限
+    user_permissions: 'SESSION_USER_PERMISSIONS'

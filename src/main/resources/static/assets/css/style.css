@@ -313,7 +313,7 @@ a {
   overflow: hidden; }
   
 .content-page .content {
-    padding: 0 5px;
+    padding: 0;
     margin-top: 50px; }
 
 .main-sidebar.left {
@@ -1203,4 +1203,8 @@ a.btn:focus {
 
 .label-info {
     background-color: #5bc0de;
+}
+/* 自定义样式 */
+ul li {
+	list-style: none;
 }
