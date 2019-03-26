@@ -45,7 +45,7 @@ public class LoginController
 	 * @since 1.0, 2019年3月21日 下午5:32:47, zby
 	 */
 	@RequestMapping("/")
-	public String home(Model model)
+	public String forword(Model model)
 	{
 		return "forward:/index";
 	}
@@ -62,6 +62,20 @@ public class LoginController
 	public String index (Model model)
 	{
 		return "index.html";
+	}
+	
+	/**
+	 * <pre>
+	 * 主页
+	 * </pre>
+	 * @param model
+	 * @return
+	 * @since 1.0, 2019年3月26日 下午3:27:34, zby
+	 */
+	@RequestMapping("/home")
+	public String home (Model model)
+	{
+		return "home.html";
 	}
 
 	/**

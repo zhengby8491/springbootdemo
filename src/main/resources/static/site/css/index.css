@@ -7,11 +7,12 @@
 	width: 100%;
 	background: wheat;
 	margin-bottom: 5px;
+	border-bottom: 1px solid white;
 }
 .nav-tab .nav-btn {
 	float: left;
   position: relative;
-	height: 32px;
+	height: 31px;
 	width: 40px;
 	background: wheat;
 	border: 0;
