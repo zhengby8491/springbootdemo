@@ -65,7 +65,10 @@ function removeTab(obj, e)
 	  that.prev().trigger("click");
 	}
 	that.remove();
-	e.stopPropagation(); // 阻止js事件冒泡机制
+	if (e)
+	{
+		e.stopPropagation(); // 阻止js事件冒泡机制
+	}
 }
 
 /* 获取顶部选项卡总长度,判断触发点击事件(左右翻标签) */
@@ -134,7 +137,7 @@ function createMouseDownMenuData(obj)
 				case SELF:
 					removeTab(_THIS);
 					_THIS.remove();
-					num == 0 ? num = 0 : num--;
+//					num == 0 ? num = 0 : num--;
 					break;
 				case OTHER:
 					for (var i = 0; i < liLength; i++)
@@ -158,7 +161,7 @@ function createMouseDownMenuData(obj)
 						if (k != 0)
 						{
 							$("#tab-list li").eq(1).remove();
-							num == 0 ? num = 0 : num--;
+//							num == 0 ? num = 0 : num--;
 						}
 					}
 					break;
@@ -166,7 +169,7 @@ function createMouseDownMenuData(obj)
 					for (var x = liCurrIndex; x < liLength; x++)
 					{
 						$("#tab-list li").eq(liCurrIndex + 1).remove();
-						num == 0 ? num = 0 : num--;
+//						num == 0 ? num = 0 : num--;
 					}
 					break;
 				case ALL:
@@ -177,7 +180,7 @@ function createMouseDownMenuData(obj)
 							$("#tab-list li").eq(1).remove();
 						}
 					}
-					num = 0;
+//					num = 0;
 					$("#tab-list li").eq(0).trigger("click");
 					break;
 				}
@@ -186,7 +189,7 @@ function createMouseDownMenuData(obj)
 				{
 					$("#tab-list li").removeClass("active").eq(-1).addClass("active");
 				}
-				//tabNavallwidth();
+				tabNavallwidth();
 			}
 
 			var liCurrIndex = $("#tab-list li").index($(this));// 当前页签的索引（从0开始）
@@ -257,8 +260,7 @@ function createMouseDownMenuData(obj)
 					return null;
 				}
 
-			}
-			;
+			};
 			_THIS.smartMenu(createMenuData(), opertionn);
 
 		}
