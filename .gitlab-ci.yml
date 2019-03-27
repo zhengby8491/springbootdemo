@@ -11,7 +11,7 @@ test_build:
   only:
     - crm-branch190321
   tags:
-    - crm-build]
+    - crm-build
     
 test_deploy:
   stage: deploy
