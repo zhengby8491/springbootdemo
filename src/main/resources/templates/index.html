@@ -20,6 +20,7 @@
 <!-- BEGIN CSS for this page -->
 <link rel="stylesheet" type="text/css" href="assets/plugins/datatables/dataTables.bootstrap4.min.css" />
 <!-- END CSS for this page -->
+<link rel="stylesheet" type="text/css" href="/site/plugins/rightMenu/smartMenu.css"/>
 <link rel="stylesheet" type="text/css" href="/site/css/index.css"/>
 </head>
 
@@ -32,7 +33,7 @@
 
 			<!-- LOGO -->
 			<div class="headerbar-left">
-				<a href="/index" class="logo">
+				<a href="javascript:void(0);" class="logo">
 					<img alt="Logo" src="assets/images/logo.png" />
 					<span>Admin</span>
 				</a>
@@ -266,12 +267,6 @@
 								<li>
 									<a class="load-link" data-title="系统设置列表" data-url="/sys/list">列表</a>
 								</li>
-								<li>
-									<a href="page-login.html">Login / Register</a>
-								</li>
-								<li>
-									<a href="page-blank.html">Blank Page</a>
-								</li>
 							</ul>
 						</li>
 
@@ -383,14 +378,16 @@
 							<i class="fa fa-backward" aria-hidden="true"></i>
 						</button>
 						<ul id="tab-list" class="accrossTab">
-						  <li class='active'><span class='tab'>CRM首页</span></li>
+						  <li class='active' data-url="/home" data-title="CRM首页"><span class='tab'>CRM首页</span></li>
 						</ul>
 						<button class="nav-btn nav-btn-right">
 							<i class="fa fa-forward" aria-hidden="true"></i>
 						</button>
 					</div>
 					<div id="layoutBox" class="layout-box">
-						<div class="layoutContent" data-url=""></div>
+						<div class="layoutContent" data-url="">
+						<% include("/home.html"){} %>
+						</div>
 					</div>
 				</div>
 				<!-- END container-fluid -->
@@ -433,6 +430,7 @@
 	<script src="assets/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
 	<script src="assets/plugins/counterup/jquery.counterup.min.js"></script>
 	
+	<script src="/site/plugins/rightMenu/smartMenu.js"></script>
 	<script src="/site/js/common/helper.js"></script>
 	<script src="/site/js/index.js"></script>
 
