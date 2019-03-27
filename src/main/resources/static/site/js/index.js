@@ -6,6 +6,7 @@ $(document).ready(function()
 		var url = $(this).data("url");
 		var title = $(this).data("title");
 		loadPage(url, title);
+		tabNavallwidth();
 	})
 	// 点击标签加载页面
 	$("#tab-list").on("click","li", function(){
@@ -18,9 +19,10 @@ $(document).ready(function()
 	})
 	// 点击标签上的删除按钮
 	$("#tab-list").on("click", "i.fa-times", function(e){
-		removeTab(this);
+		removeTab(this, e);
+		tabNavallwidth();
 	})
-	
+	// 鼠标经过页签时绑定右键鼠标事件
 	$("#tab-list").on("mouseenter", "li", function(){
 		createMouseDownMenuData($(this));
 	});
@@ -35,7 +37,7 @@ function loadPage(url, title)
 	tabList.each(function()
 	{
 		// 已打开过的页签再显示出来
-		if ($(this).data("url") == url)
+		if ($(this).data("title") == title)
 		{
 			hasTab = true;
 			$(this).siblings().removeClass("active");
@@ -54,7 +56,7 @@ function loadPage(url, title)
 	});
 }
 /* 删除页签 */
-function removeTab(obj)
+function removeTab(obj, e)
 {
 	var that = $(obj).parents("li");
 	// 如果删除了当前页签则自动加载左边最近的页签
@@ -64,6 +66,35 @@ function removeTab(obj)
 	}
 	that.remove();
 	e.stopPropagation(); // 阻止js事件冒泡机制
+}
+
+/* 获取顶部选项卡总长度,判断触发点击事件(左右翻标签) */
+function tabNavallwidth()
+{ 
+	//添加一个页签时，统计选项栏的真实长度，算出可偏移量
+	var innerWidth = window.innerWidth;  // 窗口长度
+	var leftWidth = $(".main-sidebar").width(); // 左侧菜单宽度
+	var tabAllWidth = innerWidth - 80 - leftWidth; // 选项栏的显示长度
+	var ulRealWidth = $("#tab-list").width(); // 选项栏真实长度
+	var maxOffset = ulRealWidth - tabAllWidth; // 最大允许偏移量
+	var basicOffset = leftWidth + 40; // 初始时选项栏的偏移量 290
+	var offset = $("#tab-list").offset().left - basicOffset; 
+	// 选项栏真实长度大于选项栏的显示宽度，可以向右点击
+	if (ulRealWidth > tabAllWidth)
+	{
+		$('.nav-btn-right').off().click(function()
+		{
+			$("#tab-list").css("left", offset - 100);
+		});
+	} else 
+	{
+		$('.nav-btn-right').off("click");
+	}
+	// 无论何时，向左的按钮都可执行
+	$('.nav-btn-left').off().click(function()
+	{ 
+		$("#tab-list").css("left", 40);
+	});
 }
 
 /**
@@ -147,6 +178,7 @@ function createMouseDownMenuData(obj)
 						}
 					}
 					num = 0;
+					$("#tab-list li").eq(0).trigger("click");
 					break;
 				}
 

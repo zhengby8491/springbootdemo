@@ -3,6 +3,7 @@
 	padding-left: 0;
 }
 .nav-tab {
+	position: relative;
 	height: 32px;
 	width: 100%;
 	background: wheat;
@@ -11,7 +12,7 @@
 }
 .nav-tab .nav-btn {
 	float: left;
-  position: relative;
+  position: absolute;
 	height: 31px;
 	width: 40px;
 	background: wheat;
@@ -22,23 +23,28 @@
 	cursor: pointer;
 }
 .nav-tab .nav-btn-right {
-	float: right;
+	right: 0;
 } 
 .accrossTab {
-	display: inline-block;
+	min-width: 950px;
   height: 30px;
   margin-bottom: 0;
  	padding: 0;
   line-height: 30px;
+  position: absolute;
+  left: 40px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .accrossTab:hover {
 	cursor: pointer;
 }
 .accrossTab li {
-	float: left;
+	display: inline-block;
 	position: relative;
 	border: 1px solid #fff;
 	border-radius: 6px 6px 0 0;
+	white-space: nowrap;
 }
 .accrossTab li +li {
 	border-left: 0;
