@@ -2,7 +2,30 @@ stages:
   - build
   - deploy
 
-job_build:
+## 测试环境打包和发布
+
+test_build:
+  stage: build
+  script:
+    - mvn package docker:build -Dmaven.test.skip=true
+  only:
+    - crm-branch190321
+  tags:
+    - crm-build
+    
+test_deploy:
+  stage: deploy
+  script:
+    - docker stop hycrm && docker rm hycrm
+    - docker run -d -p 8010:8010 --name hycrm hy/crm
+  only:
+    - crm-branch190321
+  tags:
+    - crm-deploy
+
+## 生成环境打包和发布
+
+pro_build:
   stage: build
   script:
     - mvn package docker:build -Dmaven.test.skip=true
@@ -11,11 +34,11 @@ job_build:
   tags:
     - crm-build
     
-job_deploy:
+pro_deploy:
   stage: deploy
   script:
     - docker stop hycrm && docker rm hycrm
-    - docker run -d -p 8010:8010 --name hycrm hy/crm
+    - docker run -d -p 8020:8010 --name hycrm hy/crm
   only:
     - master
   tags:
